@@ -5,6 +5,7 @@
 [![License](https://img.shields.io/pypi/l/diarize)](LICENSE)
 [![codecov](https://codecov.io/gh/FoxNoseTech/diarize/graph/badge.svg)](https://codecov.io/gh/FoxNoseTech/diarize)
 [![CI](https://github.com/FoxNoseTech/diarize/actions/workflows/ci.yml/badge.svg)](https://github.com/FoxNoseTech/diarize/actions/workflows/ci.yml)
+[![Docs](https://img.shields.io/badge/docs-foxnosetech.github.io-blue)](https://foxnosetech.github.io/diarize/)
 
 **Speaker diarization for Python — answers "who spoke when?" in any audio file.**
 
@@ -39,7 +40,7 @@ for seg in result.segments:
 | Install | `pip install diarize` | `pip install pyannote.audio` | `pip install pyannote.audio` |
 
 DER = Diarization Error Rate (lower is better). RTF = Real-Time Factor (lower is faster).
-pyannote numbers are self-reported from their [benchmark page](https://huggingface.co/pyannote/speaker-diarization-3.1). Full methodology: [benchmarks](docs/benchmarks.md).
+pyannote numbers are self-reported from their [benchmark page](https://huggingface.co/pyannote/speaker-diarization-3.1). Full methodology: [benchmarks](https://foxnosetech.github.io/diarize/benchmarks/).
 
 ## Quick Start
 
@@ -57,6 +58,8 @@ result.to_rttm("meeting.rttm")
 ```
 
 Requires Python 3.9+. Supports WAV, MP3, FLAC, OGG, and other formats via soundfile/libsndfile.
+
+📖 **[Full documentation](https://foxnosetech.github.io/diarize/)** — installation, API reference, architecture, benchmarks.
 
 ## API
 
@@ -76,7 +79,7 @@ result.to_list()                # export as list of dicts (JSON-serializable)
 
 Each `Segment` has `.start`, `.end`, `.speaker`, and `.duration` (all in seconds).
 
-Full API reference: [docs/api.md](docs/api.md)
+Full API reference: [documentation](https://foxnosetech.github.io/diarize/api/)
 
 ## How It Works
 
@@ -87,7 +90,7 @@ Four-stage pipeline, all CPU, all open-source:
 3. **GMM BIC** — estimates the number of speakers
 4. **Spectral Clustering** (scikit-learn, BSD) — assigns speaker labels
 
-Details: [How It Works](docs/how-it-works.md)
+Details: [How It Works](https://foxnosetech.github.io/diarize/how-it-works/)
 
 ## Benchmarks
 
@@ -115,7 +118,7 @@ Evaluated on [VoxConverse](https://github.com/joonson/voxconverse) dev set (216 
 | 8+ | 31 | 0% | 26% |
 | **Overall** | **216** | **51%** | **81%** |
 
-Full benchmark results, speed comparison, and methodology: [benchmarks](docs/benchmarks.md).
+Full benchmark results, speed comparison, and methodology: [benchmarks](https://foxnosetech.github.io/diarize/benchmarks/).
 
 ## When to use something else
 
