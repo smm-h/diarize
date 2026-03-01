@@ -1,0 +1,89 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "diarize"
+version = "0.1.0"
+description = "Speaker diarization for Python — detect who spoke when in audio files. CPU-only, no GPU, no API keys, no account signup. Automatic speaker count detection."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.9"
+authors = [
+    { name = "Alexander Lukashov" },
+]
+keywords = [
+    "speaker-diarization",
+    "diarization",
+    "speech",
+    "audio",
+    "speaker-recognition",
+    "speaker-embedding",
+    "voice-activity-detection",
+    "who-spoke-when",
+    "meeting-transcription",
+    "speech-to-text",
+    "speaker-segmentation",
+    "audio-analysis",
+    "speech-processing",
+    "cpu-inference",
+    "onnx",
+    "vad",
+    "rttm",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy>=1.21",
+    "pydantic>=2.0",
+    "soundfile>=0.12",
+    "torch>=1.13",
+    "torchaudio>=0.13",
+    "silero-vad>=5.0",
+    "wespeakerruntime>=1.0",
+    "scikit-learn>=1.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.4",
+]
+docs = [
+    "mkdocs>=1.6",
+    "mkdocs-material>=9.5",
+    "mkdocstrings[python]>=0.27",
+]
+
+[project.urls]
+Homepage = "https://github.com/FoxNoseTech/diarize"
+Documentation = "https://FoxNoseTech.github.io/diarize/"
+Repository = "https://github.com/FoxNoseTech/diarize"
+Issues = "https://github.com/FoxNoseTech/diarize/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/diarize"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 99
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
