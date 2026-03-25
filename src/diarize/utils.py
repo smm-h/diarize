@@ -8,10 +8,11 @@ from __future__ import annotations
 
 import logging
 from pathlib import Path
-from typing import Iterator
+from typing import Any, Iterator
 
 import soundfile as sf
-from pydantic import BaseModel, Field, computed_field, model_validator
+
+from pydantic import BaseModel, ConfigDict, Field, computed_field, model_validator
 
 logger = logging.getLogger(__name__)
 
@@ -141,10 +142,17 @@ class DiarizeResult(BaseModel):
         result.model_dump()             # full dict serialization
     """
 
+    # Allow numpy arrays in Pydantic model
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+
     segments: list[Segment] = Field(default_factory=list)
     audio_path: str = ""
     audio_duration: float = Field(default=0.0, ge=0)
     estimation_details: SpeakerEstimationDetails | None = None
+    embeddings: Any = Field(default=None, description="Speaker embeddings matrix (numpy array)")
+    subsegments: list[SubSegment] | None = Field(
+        default=None, description="Embedding windows used during extraction"
+    )
 
     @computed_field  # type: ignore[prop-decorator]
     @property

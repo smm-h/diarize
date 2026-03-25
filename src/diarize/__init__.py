@@ -202,6 +202,8 @@ def diarize(
         audio_path=audio_path_str,
         audio_duration=duration,
         estimation_details=estimation_details,
+        embeddings=embeddings,
+        subsegments=subsegments,
     )
 
     logger.info(
