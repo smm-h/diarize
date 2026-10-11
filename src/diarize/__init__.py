@@ -150,8 +150,11 @@ def diarize(
         num_speakers: If set, skip auto-detection and use this exact
             number of speakers.
         return_artifacts: If ``True``, populate
-            :attr:`DiarizeResult.artifacts` with speaker embeddings and
-            subsegments. Defaults to ``False``.
+            :attr:`DiarizeResult.artifacts` with the speaker embeddings and
+            subsegments used for clustering. If no speech or no embeddings
+            are found, ``artifacts`` stays ``None``. Defaults to ``False``,
+            in which case ``artifacts`` is ``None`` (serialized as
+            ``"artifacts": null``).
 
     Returns:
         :class:`DiarizeResult` containing segments, speaker info, and

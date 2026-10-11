@@ -152,6 +152,9 @@ class DiarizeResult(BaseModel):
         audio_path: Path to the source audio file.
         audio_duration: Duration of the source audio in seconds.
         estimation_details: Diagnostic info from speaker count estimation.
+        artifacts: Speaker embeddings and subsegments, populated only when
+            :func:`diarize.diarize` is called with ``return_artifacts=True``;
+            otherwise ``None``.
 
     Example::
 

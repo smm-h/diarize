@@ -89,6 +89,22 @@ if result.estimation_details:
     print(f"BIC scores: {details.k_bics}")
 ```
 
+## Embeddings and Subsegments
+
+Pass `return_artifacts=True` to also get the speaker embeddings and the
+embedding windows (subsegments) used for clustering:
+
+```python
+result = diarize("meeting.wav", return_artifacts=True)
+artifacts = result.artifacts
+print(len(artifacts.embeddings))     # one 256-dim vector per subsegment
+print(artifacts.subsegments[0])      # start, end, parent_idx
+```
+
+Artifacts use plain Python types, so `model_dump()` and `model_dump_json()`
+work as usual. By default `result.artifacts` is `None`, and serialized
+output contains `"artifacts": None`.
+
 ## Logging
 
 `diarize` uses Python's standard `logging` module:

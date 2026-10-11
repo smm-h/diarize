@@ -19,6 +19,7 @@
         - audio_path
         - audio_duration
         - estimation_details
+        - artifacts
         - speakers
         - num_speakers
         - to_rttm
@@ -37,6 +38,10 @@
       heading_level: 3
 
 ::: diarize.SpeakerEstimationDetails
+    options:
+      heading_level: 3
+
+::: diarize.DiarizeArtifacts
     options:
       heading_level: 3
 
