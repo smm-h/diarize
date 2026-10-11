@@ -211,7 +211,9 @@ def diarize(
         artifacts=DiarizeArtifacts(
             embeddings=embeddings.tolist(),
             subsegments=subsegments,
-        ) if return_artifacts else None,
+        )
+        if return_artifacts
+        else None,
     )
 
     logger.info(

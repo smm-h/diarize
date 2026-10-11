@@ -11,7 +11,6 @@ from pathlib import Path
 from typing import Iterator
 
 import soundfile as sf
-
 from pydantic import BaseModel, Field, computed_field, model_validator
 
 logger = logging.getLogger(__name__)
